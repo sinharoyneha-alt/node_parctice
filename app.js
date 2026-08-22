@@ -10,9 +10,11 @@ app.use(express.urlencoded({extended:true}))
 mongoDB();
 app.use(cors());
 app.use('/api/auth', userRoutes);
+
 const port = process.env.PORT || 8000;
+app.get('/', (req, res) => {
+    res.send('Welcome to the API');
+})
 app.listen(port, () => {
     console.log('Server is running on port', port);
 });
-console.log("hello world");
-console.log("ma ka ladle");
