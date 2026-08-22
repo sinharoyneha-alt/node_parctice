@@ -16,9 +16,26 @@ app.get('/', (req, res) => {
     res.send('Welcome to the API');
 })
 
-app.post('/', (req, res) => {
-    res.send('mongodb+srv://<sinharoyneha_db_user>:<neha2006>@cluster0.vs1liti.mongodb.net/?appName=Cluster0');
-})
+app.post('/', async(req, res) => {
+
+        try{
+            const {name,email,password}=req.body;
+            if(!name || !email || !password){
+                return res.status(400).json({
+                    message:"All fields are required"
+                });
+            }
+            res.status(200).json({
+                message:"Data received successfully",
+                data:req.body
+            });
+        }catch(err){
+            res.status(500).json({
+                message:"Internal server error",
+                error:err.message
+            });
+        }
+});
 
 app.listen(port, () => {
     console.log('Server is running on port', port);
