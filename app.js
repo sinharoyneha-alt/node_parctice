@@ -15,6 +15,11 @@ const port = process.env.PORT || 8000;
 app.get('/', (req, res) => {
     res.send('Welcome to the API');
 })
+
+app.post('/', (req, res) => {
+    res.send('mongodb+srv://<sinharoyneha_db_user>:<neha2006>@cluster0.vs1liti.mongodb.net/?appName=Cluster0');
+})
+
 app.listen(port, () => {
     console.log('Server is running on port', port);
 });
