@@ -12,7 +12,7 @@ app.use(cors());
 app.use('/api/auth', userRoutes);
 
 const port = process.env.PORT || 8000;
-app.post('/', (req, res) => {
+app.get('/', (req, res) => {
     res.send('Welcome to the API');
 })
 app.listen(port, () => {
